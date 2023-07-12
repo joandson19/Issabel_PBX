@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Variaveis
+TELEGRAM_API_KEY="KEY do bot"
+TELEGRAM_CHAT_ID="ID do chat"
+NOME="ISSABELPBX"
+
+# Diretórios de backup
+SOURCE_DIRS=(
+    "/etc/asterisk"
+    "/var/www/html/sgp"
+	"/var/lib/asterisk/agi-bin"
+	"/var/lib/asterisk/sounds/ura-inteligente"
+)
+
+BACKUP_DIR="/tmp"
+
+# Nome do arquivo de backup
+BACKUP_FILE="backup_${NOME}_$(date +"%Y%m%d%H%M%S").tar.gz"
+
+# Compacta os arquivos
+tar -czf "$BACKUP_DIR/$BACKUP_FILE" "${SOURCE_DIRS[@]}"
+
+# Verifica se a compactação foi bem-sucedida
+if [ $? -eq 0 ]; then
+    # Envia o arquivo para o Telegram
+    curl -F "chat_id=$TELEGRAM_CHAT_ID" \
+         -F "document=@$BACKUP_DIR/$BACKUP_FILE" \
+         "https://api.telegram.org/bot$TELEGRAM_API_KEY/sendDocument"
+    
+    # Verifica se o envio foi bem-sucedido
+    if [ $? -eq 0 ]; then
+        echo "Backup realizado e enviado para o Telegram com sucesso."
+    else
+        echo "Erro ao enviar o backup para o Telegram."
+    fi
+else
+    echo "Erro ao compactar os arquivos."
+fi
