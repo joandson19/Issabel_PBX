@@ -37,3 +37,6 @@ if [ $? -eq 0 ]; then
 else
     echo "Erro ao compactar os arquivos."
 fi
+
+# Remove arquivo temporario 
+rm -rf "$BACKUP_DIR/$BACKUP_FILE"
