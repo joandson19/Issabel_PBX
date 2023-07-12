@@ -23,12 +23,12 @@ tar -czf "$BACKUP_DIR/$BACKUP_FILE" "${SOURCE_DIRS[@]}"
 
 # Verifica se a compactação foi bem-sucedida
 if [ $? -eq 0 ]; then
-    # Envia o arquivo para o Telegram
+# Envia o arquivo para o Telegram
     curl -F "chat_id=$TELEGRAM_CHAT_ID" \
          -F "document=@$BACKUP_DIR/$BACKUP_FILE" \
          "https://api.telegram.org/bot$TELEGRAM_API_KEY/sendDocument"
     
-    # Verifica se o envio foi bem-sucedido
+# Verifica se o envio foi bem-sucedido
     if [ $? -eq 0 ]; then
         echo "Backup realizado e enviado para o Telegram com sucesso."
     else
