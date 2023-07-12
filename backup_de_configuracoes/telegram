@@ -9,8 +9,8 @@ NOME="ISSABELPBX"
 SOURCE_DIRS=(
     "/etc/asterisk"
     "/var/www/html/sgp"
-	"/var/lib/asterisk/agi-bin"
-	"/var/lib/asterisk/sounds/ura-inteligente"
+    "/var/lib/asterisk/agi-bin"
+    "/var/lib/asterisk/sounds/ura-inteligente"
 )
 
 BACKUP_DIR="/tmp"
