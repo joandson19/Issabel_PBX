@@ -3,7 +3,7 @@
 # Variaveis
 TELEGRAM_API_KEY="KEY do bot"
 TELEGRAM_CHAT_ID="ID do chat"
-NOME="ISSABELPBX"
+NOME="$(hostname)"
 
 # Diretórios de backup
 SOURCE_DIRS=(
