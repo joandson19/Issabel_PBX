@@ -63,3 +63,4 @@ fi
 
 # Remove o diretório temporário
 rm -rf "$TEMP_DIR"
+rm -rf "$BACKUP_DIR/$BACKUP_FILE"
