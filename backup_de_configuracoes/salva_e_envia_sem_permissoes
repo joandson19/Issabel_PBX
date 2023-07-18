@@ -38,5 +38,6 @@ else
     echo "Erro ao compactar os arquivos."
 fi
 
-# Remove arquivo temporario 
+# Remove o diretório temporário
+rm -rf "$TEMP_DIR"
 rm -rf "$BACKUP_DIR/$BACKUP_FILE"
