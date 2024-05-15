@@ -7,8 +7,9 @@
 
 ## Baixar e instalar drive
 ```
-# cd /usr/src/dongle_asterisk11
+# cd /usr/src/
 # git clone --depth 1 --branch main --single-branch https://github.com/joandson19/Issabel_PBX.git dongle_asterisk11
+# cd dongle_asterisk11/
 # rpm -ivh usb_modeswitch-1.2.3-1.el6.rf.x86_64.rpm
 # yum install usb_modeswitch -y
 ```
